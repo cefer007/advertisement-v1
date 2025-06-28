@@ -56,6 +56,12 @@
                 <i class="fas fa-fw fa-car"></i>
                 <span>Car</span></a>
         </li>
+        <!-- Nav Item - Tables -->
+        <li class="nav-item @if(request()->segment(2) == "car-model") active @endif">
+            <a class="nav-link" href="{{route('dashboard.car-model.index')}}">
+                <i class="fas fa-fw fa-car-side"></i>
+                <span>Car Models</span></a>
+        </li>
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
