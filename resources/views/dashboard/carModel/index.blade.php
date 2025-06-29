@@ -45,7 +45,7 @@
                     </i>
                 </button>
 
-                <a href="http://127.0.0.1:8000/dashboard/car/index?name=&creator=" class="btn btn-primary">
+                <a href="http://127.0.0.1:8000/dashboard/car-model/index" class="btn btn-primary">
                     <i class="fa fa-sync-alt"></i> Refresh
                 </a>
 

@@ -59,19 +59,14 @@ class CarModelQueryController extends Controller
 
     public function edit($id)
     {
-        $car = Car::query()
-            ->from('Cars as c')
-            ->where('c.id' , $id)
+        $model = CarModel::query()
+            ->where('id' , $id)
             ->first();
 
-        if(!$car){
+        if(!$model){
             abort('404');
         }
-        return view('dashboard.car.edit',compact('car'));
-    }
 
-    public function trash(\Illuminate\Http\Request $request)
-    {
         $cars = Car::query()
             ->from('Cars as c')
             ->select('c.id',
@@ -79,26 +74,40 @@ class CarModelQueryController extends Controller
                 'c.created_at',
                 'u.name as creator')
             ->join('users as u', 'u.id' ,  'c.created_by')
-            ->whereNotNull('c.deleted_at');
+            ->get();
+
+        return view('dashboard.carmodel.edit',compact('model','cars'));
+    }
+
+    public function trash(\Illuminate\Http\Request $request)
+    {
+        $models = CarModel::query()
+            ->from('car_models as m')
+            ->select('m.id',
+                'm.name',
+                'm.created_at',
+                'u.name as creator')
+            ->join('users as u', 'u.id' ,  'm.created_by')
+            ->whereNotNull('m.deleted_at');
 
 
         if($request->name != null)
         {
-            $cars = $cars
-                ->where('c.name', 'like', '%'.$request->name.'%');
+            $models = $models
+                ->where('m.name', 'like', '%'.$request->name.'%');
         }
 
         if($request->creator != null)
         {
-            $cars = $cars
+            $models = $models
                 ->where('u.name', 'like', '%'.$request->creator.'%');
         }
 
 
-        $cars = $cars
-            ->orderBy('c.id', 'desc')
+        $models = $models
+            ->orderBy('m.id', 'desc')
             ->paginate(10);
 
-        return view('dashboard.car.trash',compact('cars'));
+        return view('dashboard.carmodel.trash',compact('models'));
     }
 }

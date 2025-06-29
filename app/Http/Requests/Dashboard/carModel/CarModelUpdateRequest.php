@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\carModel;
+namespace App\Http\Requests\Dashboard\carModel;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CarModelStoreRequest extends FormRequest
+class CarModelUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
