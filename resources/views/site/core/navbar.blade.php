@@ -3,7 +3,7 @@
         <a href="#" class="turboLogo"> Turbo.az </a>
     </div>
     <div class="headerRight">
-        <a href="/newauto.html" class="addNewAnnouncementBut">
+        <a href="{{ route('create') }}" class="addNewAnnouncementBut">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"

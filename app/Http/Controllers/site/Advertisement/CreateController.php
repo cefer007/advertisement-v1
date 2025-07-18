@@ -10,15 +10,24 @@ use App\Models\Color;
 use App\Models\Currency;
 use App\Models\FuelType;
 use App\Models\Gear;
+use App\Models\CarSupplier;
 use Illuminate\Http\Request;
 
 class CreateController extends Controller
 {
     public function index()
     {
+        if (!auth()->guard('main')->check())
+            return redirect('login');
+
         $cars = Car::query()
             ->select('id', 'name')
             ->orderBy('name')
+            ->whereNULL('deleted_by')
+            ->get();
+
+        $suppliers = FuelType::query()
+            ->select('id', 'name')
             ->get();
 
         $fuels = FuelType::query()
@@ -46,7 +55,7 @@ class CreateController extends Controller
             ->get();
 
         return view('site.create', compact('cars'
-        , 'fuels', 'gears', 'bans', 'currencies', 'colors', 'cities'));
+        , 'fuels', 'gears', 'bans', 'currencies', 'colors', 'cities', 'suppliers'));
     }
 
 }

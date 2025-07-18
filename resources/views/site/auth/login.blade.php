@@ -38,6 +38,13 @@
                 <button type="submit" class="registrationBlockPopupSubmit">
                     Tesdiqleme gonderilsin
                 </button>
+
+                <div>
+                    <button type="submit">
+                        <a  href="http://127.0.0.1:8000/register">Register here</a>
+                    </button>
+                </div>
+
             </form>
         </div>
         <div>

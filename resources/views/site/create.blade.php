@@ -154,19 +154,19 @@
                         </div>
                     </div>
 
-{{--                    <div class="autoSupply mt-5">--}}
-{{--                        <div class="autoSupplyName">Avtomobilin təchizatı</div>--}}
-{{--                        <div class="row autoSupplyBlock">--}}
-{{--                            @foreach($suppliers as $supplier)--}}
-{{--                                <div class="col-12 col-md-3">--}}
-{{--                                    <div class="form-check">--}}
-{{--                                        <input type="checkbox" name="supplier_ids[]" id="{{ $supplier->id }}" class="form-check-input" value="{{ $supplier->id }}"/>--}}
-{{--                                        <label class="form-check-label" for="{{ $supplier->id }}">{{ $supplier->name }}</label>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            @endforeach--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
+                    <div class="autoSupply mt-5">
+                        <div class="autoSupplyName">Avtomobilin təchizatı</div>
+                        <div class="row autoSupplyBlock">
+                            @foreach($suppliers as $supplier)
+                                <div class="col-12 col-md-3">
+                                    <div class="form-check">
+                                        <input type="checkbox" name="supplier_ids[]" id="{{ $supplier->id }}" class="form-check-input" value="{{ $supplier->id }}"/>
+                                        <label class="form-check-label" for="{{ $supplier->id }}">{{ $supplier->name }}</label>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
 
                     <div class="col-12">
                         <div class="photos">
@@ -214,7 +214,7 @@
             let car_id = e.target.value;
 
             $.ajax({
-                url: "/api/car-models/" + car_id,
+                url: "/api/getModelsByCarId/" + car_id,
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
