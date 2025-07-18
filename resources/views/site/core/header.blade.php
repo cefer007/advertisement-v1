@@ -26,7 +26,7 @@
             <li>
                 <a href="/bookmarks.html">Seçilmişlər</a>
             </li>
-{{--            @if(!auth()->guard('site')->check())--}}
+            @if(!auth()->guard('main')->check())
                 <li>
                     <a href="{{ route('register') }}" class="mainLoginIcon">
                   <span class="loginIconDesign">
@@ -40,7 +40,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('register') }}" class="mainLoginIcon">
+                    <a href="{{ route('login') }}" class="mainLoginIcon">
                   <span class="loginIconDesign">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                       <path
@@ -51,7 +51,7 @@
                         <span>Giriş</span>
                     </a>
                 </li>
-{{--            @else--}}
+            @else
                 <li>
                     <a href="#" class="mainLoginIcon">
                       <span class="loginIconDesign">
@@ -61,7 +61,7 @@
                           />
                         </svg>
                       </span>
-{{--                      <span>{{ auth()->guard('site')->user()->name }}</span>--}}
+                      <span>{{ auth()->guard('main')->user()->fullname }}</span>
                     </a>
                 </li>
                 <li>
@@ -69,6 +69,6 @@
                         <i class="fa-solid fa-right-from-bracket"></i>Log out
                     </a>
                 </li>
-{{--            @endif--}}
+            @endif
         </ul>
     </header>

@@ -50,6 +50,12 @@
                 <span>Home</span></a>
         </li>
 
+        <li class="nav-item @if(request()->segment(2) == "site-user") active @endif">
+            <a class="nav-link" href="{{route('dashboard.site-user.index')}}">
+                <i class="fas fa-fw fa-user"></i>
+                <span>Site user</span></a>
+        </li>
+
         <!-- Nav Item - Tables -->
         <li class="nav-item @if(request()->segment(2) == "car") active @endif">
             <a class="nav-link" href="{{route('dashboard.car.index')}}">

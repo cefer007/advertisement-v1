@@ -10,4 +10,5 @@ class messageUtil
     public const Deleted = 'Succesfuly deleted';
     public const Restored = 'Succesfuly restored';
     public const Duplicate = 'Duplicated model name';
+    public const email_not_found = 'Email not found';
 }

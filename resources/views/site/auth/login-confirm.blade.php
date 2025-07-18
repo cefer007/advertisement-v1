@@ -27,7 +27,7 @@
         </a>
         <div class="registrationBlockPopupName">Girisi tesdiqle</div>
         <div>
-            <form action="{{ route('login.confirm.submit', $user_id) }}" method="POST">
+            <form action="{{ route('login.verify.submit', $user_id) }}" method="POST">
                 @csrf
 
                 <div class="form-group">
@@ -42,9 +42,9 @@
 
             <hr>
 
-            @if(session('fail'))
+            @if(session('error'))
                 <div class="alert alert-danger">
-                    {{ session('fail') }}
+                    {{ session('error') }}
                 </div>
             @endif
 

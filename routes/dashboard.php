@@ -7,6 +7,7 @@ use App\Http\Controllers\dashboard\car\CarQueryController;
 use App\Http\Controllers\dashboard\car\CarCommandController;
 use App\Http\Controllers\dashboard\carModel\CarModelCommandController;
 use App\Http\Controllers\dashboard\carModel\CarModelQueryController;
+use App\Http\Controllers\Dashboard\SiteUser\SiteUserController;
 
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -38,4 +39,9 @@ Route::group(['middleware' => 'dashboardAuthCheck'], function () {
         Route::get('/delete/{id}' , [CarModelCommandController::class, 'delete'])->name('delete');
         Route::get('/restore/{id}' , [CarModelCommandController::class, 'restore'])->name('restore');
     });
+
+    Route::group(['prefix' => 'site-user', 'as' => 'site-user.'], function () {
+        Route::get('/index' , [SiteUserController::class, 'index'])->name('index');
+    });
+
 });
